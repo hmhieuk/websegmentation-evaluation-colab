@@ -191,7 +191,7 @@ class DOMParser_to_json:
         firefox_options = webdriver.FirefoxOptions()
         firefox_options.add_argument('--headless')
         self.browser = webdriver.Firefox(
-            executable_path='/usr/local/bin/geckodriver', options=firefox_options)
+            executable_path='/content/drive/MyDrive/dataset-websis/geckodriver', options=firefox_options)
         self.browser.implicitly_wait(1000)
 
     def getWebPage(self):
