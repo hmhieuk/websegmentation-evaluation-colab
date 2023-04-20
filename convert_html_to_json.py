@@ -90,13 +90,8 @@ def segment_file(id, dataset_path, common_log_file):
 
 
 def main():
-    dataset_path = "/Users/hieu.huynh/Downloads/webis-webseg-20 2"
-    random_ids_file = "random_id.json"
-    log_file = "log" + str(datetime.datetime.now()) + ".txt"
-    with open(random_ids_file, "r") as f:
-        random_ids = json.load(f)
-
-    folder_names = random_ids
+    dataset_path = "/content/drive/MyDrive/dataset-websis/webis-webseg-20"
+    folder_names = os.listdir(dataset_path)
     folder_names.sort()
     # ignore .DS_Store,
     folder_names = [
