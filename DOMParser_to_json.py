@@ -196,6 +196,7 @@ class DOMParser_to_json:
             self.browser = webdriver.Firefox(
                 executable_path=gec_path, options=firefox_options)
         else:
+            print("geckodriver not found")
             self.browser = webdriver.Firefox(options=firefox_options)
 
         self.browser.implicitly_wait(1000)
