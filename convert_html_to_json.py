@@ -91,6 +91,7 @@ def segment_file(id, dataset_path, common_log_file):
 
 def main():
     dataset_path = "/content/drive/MyDrive/dataset-websis/webis-webseg-20"
+    log_file = os.path.join(dataset_path, f"log_{datetime.datetime.now()}.txt")
     folder_names = os.listdir(dataset_path)
     folder_names.sort()
     # ignore .DS_Store,
