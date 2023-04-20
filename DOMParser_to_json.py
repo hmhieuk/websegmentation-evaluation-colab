@@ -191,12 +191,13 @@ class DOMParser_to_json:
         firefox_options = webdriver.FirefoxOptions()
         firefox_options.add_argument('--headless')
         #check if you have geckodriver in the same directory as this file
-        if os.path.isfile('/content/drive/MyDrive/dataset-websis/geckodriver'):
+        gec_path = "/content/drive/MyDrive/dataset-websis/geckodriver"
+        if os.path.isfile(gec_path):
             self.browser = webdriver.Firefox(
-                executable_path='./geckodriver', options=firefox_options)
+                executable_path=gec_path, options=firefox_options)
         else:
             self.browser = webdriver.Firefox(options=firefox_options)
-            
+
         self.browser.implicitly_wait(1000)
 
     def getWebPage(self):
