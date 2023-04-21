@@ -10,6 +10,8 @@ from PIL import Image, ImageDraw, ImageFont
 import bs4
 import cv2
 
+from selenium.webdriver.chrome.service import Service
+
 def findInMappingList(node, mapping):
     for pair in mapping:
         if node in pair:
@@ -188,16 +190,18 @@ class DOMParser_to_json:
         self.base_dir = newpath
 
     def setDriver(self):
-        firefox_options = webdriver.FirefoxOptions()
-        firefox_options.add_argument('--headless')
-        #check if you have geckodriver in the same directory as this file
-        gec_path = "/content/drive/MyDrive/dataset-websis/geckodriver"
-        if os.path.isfile(gec_path):
-            self.browser = webdriver.Firefox(
-                executable_path=gec_path, options=firefox_options)
-        else:
-            print("geckodriver not found")
-            self.browser = webdriver.Firefox(options=firefox_options)
+
+
+        # Set the path to the chromedriver executable
+        chromedriver_path = '/usr/bin/chromedriver'
+        # Set the Chrome driver options
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+
+        # Start the Chrome driver
+        self.browser = webdriver.Chrome(service=Service(executable_path=chromedriver_path), options=options)
 
         self.browser.implicitly_wait(1000)
 
