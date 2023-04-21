@@ -159,9 +159,9 @@ class DOMParser_to_json:
         self.setUrl(urlStr, id)
         self.setDriver()
         self.getWebPage()
-        self.killDriver()
         # self.getScreenshot()
         self.getDomTree(out_json)
+        self.killDriver()
         # self.segmentTime = self.segment(grainSegment)
 
     def getDomFile(self):

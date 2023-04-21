@@ -98,7 +98,7 @@ def main():
     folder_names = [
         folder_name for folder_name in folder_names if folder_name[0] != "."]
     threads = []
-    batch_size = 1
+    batch_size = 10
     for i in range(0, len(folder_names), batch_size):
         print("processing batch " + str(i))
         batch = folder_names[i:i+batch_size]
