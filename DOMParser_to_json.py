@@ -10,6 +10,11 @@ from PIL import Image, ImageDraw, ImageFont
 import bs4
 import cv2
 
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium import webdriver
+    
+from selenium.webdriver import FirefoxOptions
+
 from selenium.webdriver.chrome.service import Service
 
 def findInMappingList(node, mapping):
@@ -190,19 +195,10 @@ class DOMParser_to_json:
         self.base_dir = newpath
 
     def setDriver(self):
-
-
-        # Set the path to the chromedriver executable
-        chromedriver_path = '/usr/bin/chromedriver'
-        # Set the Chrome driver options
-        options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-
-        # Start the Chrome driver
-        self.browser = webdriver.Chrome(service=Service(executable_path=chromedriver_path), options=options)
-
+        opts = FirefoxOptions()
+        opts.add_argument("--headless")
+        self.browser = webdriver.Firefox(executable_path=
+                GeckoDriverManager().install(), options=opts)
         self.browser.implicitly_wait(1000)
 
     def getWebPage(self):
