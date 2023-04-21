@@ -207,8 +207,6 @@ class DOMParser_to_json:
         opts.set_preference("browser.tabs.remote.force-enable", False)
         opts.set_preference("browser.tabs.remote.separateFileUriProcess", False)
         opts.set_preference("browser.tabs.unloadOnLowMemory", False)
-        opts.set_preference("browser.cache.disk.enable", False)
-        opts.set_preference("browser.cache.memory.enable", False)
         opts.set_preference("browser.sessionstore.interval", 300000)
         opts.set_preference("browser.sessionstore.resume_from_crash", False)
         opts.set_preference("browser.sessionstore.resume_session_once", True)
